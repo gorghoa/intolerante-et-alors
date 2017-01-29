@@ -5,7 +5,7 @@ web:
     environment:
      - WORDPRESS_DB_PASSWORD=password
     ports:
-     - "127.0.0.3:8080:80"
+     - "127.0.0.3:80:80"
     working_dir: /var/www/html
     volumes:
      - ./:/var/www/html
