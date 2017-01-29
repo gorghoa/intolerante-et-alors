@@ -492,6 +492,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700; }
 
 body {
+  background-color: #e3e3e3;
   font-family: "Open-sans", sans-serif;
   font-weight: 400;
   color: #303044; }
@@ -527,7 +528,108 @@ button {
   font-size: 2.4em; }
 
 .introduction {
-  font-size: 1.7em; }
+  font-size: 2.1em;
+  text-align: justify;
+  text-align-last: center; }
+
+[class^="col-"] {
+  display: inline-block;
+  vertical-align: top; }
+
+.col-25 {
+  width: 25%; }
+
+.col-50 {
+  width: 50%; }
+
+.site-header {
+  padding: 40px 0 0;
+  text-align: center; }
+  .site-header h1, .site-header p {
+    margin: 0;
+    padding: 0; }
+  .site-header img {
+    max-width: 90%;
+    height: auto; }
+
+.post-list .post {
+  position: relative; }
+  .post-list .post h2 {
+    display: inline-block;
+    font-size: 6em;
+    font-family: "Ruthie", cursive;
+    font-weight: 400;
+    line-height: 0.6em;
+    color: #303044;
+    border-bottom: 1px solid #ed1a4d; }
+  .post-list .post p {
+    color: #303044;
+    text-align: justify; }
+  .post-list .post .col-50 {
+    position: relative;
+    height: 585px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%; }
+  .post-list .post .post-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    height: 1px; }
+  .post-list .post .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(68, 61, 63, 0);
+    transition: background-color 300ms linear; }
+    .post-list .post .overlay p {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      padding: 0;
+      height: 60px;
+      transition: color 300ms linear;
+      font-family: "Ruthie", cursive;
+      font-size: 6em;
+      line-height: 1;
+      color: transparent;
+      text-align: center;
+      text-align-last: center; }
+  .post-list .post a:hover .overlay {
+    background-color: rgba(68, 61, 63, 0.8); }
+    .post-list .post a:hover .overlay p {
+      color: #fefefe; }
+  .post-list .post-even {
+    text-align: right; }
+    .post-list .post-even h2 {
+      padding-right: 30px; }
+    .post-list .post-even p {
+      padding-right: 30px;
+      text-align-last: right; }
+    .post-list .post-even .overlay p {
+      left: 50%;
+      right: 0; }
+  .post-list .post-odd {
+    text-align: left; }
+    .post-list .post-odd h2 {
+      padding-left: 30px; }
+    .post-list .post-odd p {
+      padding-left: 30px; }
+    .post-list .post-odd .overlay p {
+      left: 0;
+      right: 50%; }
+
+.separator {
+  margin: 40px 0;
+  padding: 0;
+  height: 37px;
+  background: url(../images/separator.png) 50% 0 no-repeat; }
 
 @media print {
   .hidden-print,

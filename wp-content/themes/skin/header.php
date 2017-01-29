@@ -22,9 +22,22 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
 	<header id="masthead" class="site-header" role="banner">
-		<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
+        <?php if ( is_front_page() ) : ?>
+            <h1 class="site-title">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/logo-couleur.png" height="236" alt="<?php bloginfo( 'name' ); ?>" />
+                </a>
+            </h1>
+        <?php else : ?>
+            <p class="site-title">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/logo-couleur.png" height="236" alt="<?php bloginfo( 'name' ); ?>" />
+                </a>
+            </p>
+        <?php endif; ?>
+
+        <hr class="separator" />
 	</header><!-- #masthead -->
 
 	<div class="site-content-contain">

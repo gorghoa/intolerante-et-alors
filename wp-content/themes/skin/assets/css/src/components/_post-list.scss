@@ -1,0 +1,42 @@
+$content-padding: 30px;
+$transition-duration: 300ms;
+
+.post-list .post {
+  position: relative;
+
+  h2 {
+    display: inline-block;
+    font-size: 6em; font-family: $ruthie; font-weight: $fw-regular; line-height: 0.6em; color: $black; border-bottom: 1px solid $red;
+  }
+  p { color: $black; text-align: justify; }
+  .col-50 { position: relative; height: 585px; background-size: cover; background-repeat: no-repeat; background-position: 50%; }
+  .post-content { position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; height: 1px; }
+  .overlay {
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba($brown, 0);
+    transition: background-color $transition-duration linear;
+
+    p {
+      position: absolute; top: 0; bottom: 0; margin: auto 0; padding: 0; height: 60px;
+      transition: color $transition-duration linear;
+      font-family: $ruthie; font-size: 6em; line-height: 1; color: transparent; text-align: center; text-align-last: center;
+    }
+  }
+  a:hover .overlay {
+    background-color: rgba($brown, .8);
+
+    p { color: $white; }
+  }
+
+  &-even {
+    text-align: right;
+    h2 { padding-right: $content-padding; }
+    p { padding-right: $content-padding; text-align-last: right; }
+    .overlay p { left: 50%; right: 0; }
+  }
+  &-odd {
+    text-align: left;
+    h2 { padding-left: $content-padding; }
+    p { padding-left: $content-padding; }
+    .overlay p { left: 0; right: 50%; }
+  }
+}

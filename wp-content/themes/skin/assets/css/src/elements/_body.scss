@@ -6,4 +6,7 @@
 ////
 
 /// Text default font and color
-body { font-family: $font; font-weight: $fw-regular; color: $color-text; }
+body {
+  background-color: $light-grey;
+  font-family: $font; font-weight: $fw-regular; color: $color-text;
+}

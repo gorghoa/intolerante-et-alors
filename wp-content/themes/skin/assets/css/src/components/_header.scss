@@ -1,0 +1,9 @@
+$header-padding: 40px;
+
+.site-header {
+  padding: $header-padding 0 0;
+  text-align: center;
+
+  h1, p { margin: 0; padding: 0; }
+  img { max-width: 90%; height: auto; }
+}

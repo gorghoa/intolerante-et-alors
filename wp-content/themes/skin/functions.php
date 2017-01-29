@@ -18,6 +18,26 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 }
 
 /**
+ * Enqueue scripts and styles.
+ */
+function skin_scripts() {
+    // Theme stylesheet.
+    wp_enqueue_style( 'skin-style', get_theme_file_uri( '/assets/css/main.css' ), array(), '1.0' );
+}
+add_action( 'wp_enqueue_scripts', 'skin_scripts' );
+
+function get_introduction() {
+    $post =  get_post(2);
+    return $post->post_content;
+}
+
+function custom_content_more_link() {
+    return 'Hello';
+}
+add_filter('the_content_more_link', 'custom_content_more_link');
+
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
@@ -403,16 +423,6 @@ function twentyseventeen_colors_css_wrap() {
 	</style>
 <?php }
 add_action( 'wp_head', 'twentyseventeen_colors_css_wrap' );
-
-/**
- * Enqueue scripts and styles.
- */
-function twentyseventeen_scripts() {
-	// Theme stylesheet.
-    wp_enqueue_style( 'skin-style', get_theme_file_uri( '/assets/css/main.css' ), array(), '1.0' );
-
-}
-add_action( 'wp_enqueue_scripts', 'twentyseventeen_scripts' );
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
