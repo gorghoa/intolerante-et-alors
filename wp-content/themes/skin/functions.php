@@ -23,6 +23,9 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 function skin_scripts() {
     // Theme stylesheet.
     wp_enqueue_style( 'skin-style', get_theme_file_uri( '/assets/css/main.css' ), array(), '1.0' );
+
+    // Theme script
+    wp_enqueue_script( 'skin-script', get_theme_file_uri() . '/assets/js/main.js', array(), '1.0' );
 }
 add_action( 'wp_enqueue_scripts', 'skin_scripts' );
 
@@ -32,12 +35,12 @@ function get_introduction() {
 }
 
 function custom_content_more_link() {
-    return 'Hello';
+    return '';
 }
 add_filter('the_content_more_link', 'custom_content_more_link');
 
 
-/**
+        /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which

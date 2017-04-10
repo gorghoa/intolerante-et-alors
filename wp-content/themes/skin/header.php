@@ -22,17 +22,17 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header page-sized" role="banner">
         <?php if ( is_front_page() ) : ?>
             <h1 class="site-title">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/logo-couleur.png" height="236" alt="<?php bloginfo( 'name' ); ?>" />
+                    <img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/logo-couleur.png" width="70%" alt="<?php bloginfo( 'name' ); ?>" />
                 </a>
             </h1>
         <?php else : ?>
             <p class="site-title">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/logo-couleur.png" height="236" alt="<?php bloginfo( 'name' ); ?>" />
+                    <img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/logo-couleur.png" width="70%" alt="<?php bloginfo( 'name' ); ?>" />
                 </a>
             </p>
         <?php endif; ?>

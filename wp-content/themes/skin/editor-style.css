@@ -1,0 +1,15 @@
+/* These styles are used only in the backend editor */
+
+/* Here you can override any CSS which causes layout or visibility problems in the editor, */
+/* and duplicate any Theme-CSS to make the editor display look more like the real frontend */
+.astuce { padding: 20px; background-color: rgba(237, 26, 77, 0.2); }
+
+.astuce { padding: 30px; background-color: #443d3f; }
+
+.astuce h3, .astuce p {
+    margin: 0;
+    color: #ffffff;
+}
+.astuce h3 {
+    font-size: 2em; font-weight: 400; color: #ed1a4d;
+}

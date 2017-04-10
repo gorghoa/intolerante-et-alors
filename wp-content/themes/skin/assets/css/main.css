@@ -492,7 +492,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700; }
 
 body {
-  background-color: #e3e3e3;
+  background-color: #ece7e7;
   font-family: "Open-sans", sans-serif;
   font-weight: 400;
   color: #303044; }
@@ -542,6 +542,23 @@ button {
 .col-50 {
   width: 50%; }
 
+.site-footer {
+  padding: 40px 0 0;
+  background-color: #443d3f;
+  text-align: center; }
+  .site-footer ul {
+    margin: 30px 0; }
+  .site-footer li {
+    display: inline;
+    margin: 0;
+    font-size: 2em; }
+  .site-footer li + li:before {
+    margin: 0 10px;
+    content: '-';
+    color: #fefefe; }
+  .site-footer a {
+    color: #fefefe; }
+
 .site-header {
   padding: 40px 0 0;
   text-align: center; }
@@ -552,8 +569,43 @@ button {
     max-width: 90%;
     height: auto; }
 
+.pagination {
+  margin: 50px 0;
+  font-size: 1.8em;
+  line-height: 1; }
+  .pagination a {
+    display: inline-block;
+    width: 50%;
+    background-repeat: no-repeat;
+    color: #303044;
+    text-align: center; }
+  .pagination span {
+    display: inline-block;
+    padding: 10px 0;
+    background-repeat: no-repeat;
+    transition: background-position 200ms ease-in; }
+  .pagination .page-previous {
+    padding-left: 30px;
+    background-image: url("../images/arrow-left.png");
+    background-position: 3% 50%; }
+  .pagination a:hover .page-previous {
+    background-position: 0 50%; }
+  .pagination .page-next {
+    padding-right: 30px;
+    background-image: url("../images/arrow-right.png");
+    background-position: 97% 50%; }
+  .pagination a:hover .page-next {
+    background-position: 100% 50%; }
+
+h1.archive-title {
+  font-family: "Ruthie", cursive;
+  font-size: 8em;
+  font-weight: 400;
+  text-align: center; }
+
 .post-list .post {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .post-list .post h2 {
     display: inline-block;
     font-size: 6em;
@@ -563,6 +615,7 @@ button {
     color: #303044;
     border-bottom: 1px solid #ed1a4d; }
   .post-list .post p {
+    font-size: 2em;
     color: #303044;
     text-align: justify; }
   .post-list .post .col-50 {
@@ -573,12 +626,15 @@ button {
     background-position: 50%; }
   .post-list .post .post-content {
     position: absolute;
-    top: 0;
+    top: 50%;
     right: 0;
-    bottom: 0;
     left: 0;
-    margin: auto;
-    height: 1px; }
+    transform: translate3d(0, -40%, 0);
+    opacity: .1;
+    transition: transform 300ms ease-in, opacity 300ms ease-in; }
+  .post-list .post--visible .post-content {
+    transform: translate3d(0, -50%, 0);
+    opacity: 1; }
   .post-list .post .overlay {
     position: absolute;
     top: 0;
@@ -586,7 +642,7 @@ button {
     bottom: 0;
     left: 0;
     background-color: rgba(68, 61, 63, 0);
-    transition: background-color 300ms linear; }
+    transition: background-color 300ms linear 300ms; }
     .post-list .post .overlay p {
       position: absolute;
       top: 0;
@@ -594,7 +650,7 @@ button {
       margin: auto 0;
       padding: 0;
       height: 60px;
-      transition: color 300ms linear;
+      transition: color 300ms linear 300ms;
       font-family: "Ruthie", cursive;
       font-size: 6em;
       line-height: 1;
@@ -608,9 +664,9 @@ button {
   .post-list .post-even {
     text-align: right; }
     .post-list .post-even h2 {
-      padding-right: 30px; }
+      padding-right: 40px; }
     .post-list .post-even p {
-      padding-right: 30px;
+      padding-right: 40px;
       text-align-last: right; }
     .post-list .post-even .overlay p {
       left: 50%;
@@ -618,18 +674,165 @@ button {
   .post-list .post-odd {
     text-align: left; }
     .post-list .post-odd h2 {
-      padding-left: 30px; }
+      padding-left: 40px; }
     .post-list .post-odd p {
-      padding-left: 30px; }
+      padding-left: 40px; }
     .post-list .post-odd .overlay p {
       left: 0;
       right: 50%; }
+
+.post-mini-list {
+  text-align: center; }
+  .post-mini-list .post {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin-bottom: 80px;
+    width: 25%;
+    height: 292px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    vertical-align: top; }
+    .post-mini-list .post + .post {
+      margin-left: -3px; }
+    .post-mini-list .post h2 {
+      display: inline-block;
+      border-bottom: 1px solid #ed1a4d;
+      font-size: 3.5em;
+      font-family: "Ruthie", cursive;
+      font-weight: 400;
+      line-height: 0.6em;
+      color: #fefefe;
+      text-shadow: 0 0 20px #303044; }
+    .post-mini-list .post .post-content {
+      position: absolute;
+      bottom: 10%;
+      right: 0;
+      left: 0; }
+    .post-mini-list .post .overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(68, 61, 63, 0);
+      transition: background-color 300ms linear 300ms; }
+      .post-mini-list .post .overlay p {
+        position: absolute;
+        top: 50%;
+        margin: 0;
+        width: 100%;
+        transform: translateY(-50%);
+        transition: color 300ms linear 300ms;
+        font-family: "Ruthie", cursive;
+        font-size: 4em;
+        line-height: 1;
+        color: transparent;
+        text-align: center; }
+    .post-mini-list .post a:hover .overlay {
+      background-color: rgba(68, 61, 63, 0.8); }
+      .post-mini-list .post a:hover .overlay p {
+        color: #fefefe; }
+    .post-mini-list .post-mini-even {
+      text-align: left; }
+      .post-mini-list .post-mini-even h2 {
+        padding-left: 40px; }
+    .post-mini-list .post-mini-odd {
+      text-align: right; }
+      .post-mini-list .post-mini-odd h2 {
+        padding-right: 40px; }
+
+.post-single .post-header {
+  position: relative;
+  padding: 600px 0 100px;
+  text-align: right; }
+  .post-single .post-header .stretched-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-position: 50% 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-filter: hue-rotate(-10deg) brightness(50%); }
+
+.post-single .ingredients {
+  float: right;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  width: 35%;
+  padding: 30px;
+  background: #ed1a4d;
+  color: #fefefe; }
+  .post-single .ingredients h2 {
+    margin-right: -30px;
+    margin-top: 0;
+    font-family: "Ruthie", cursive;
+    font-size: 3.6em;
+    font-weight: 400;
+    text-align: right; }
+    .post-single .ingredients h2 span {
+      display: inline-block;
+      padding-right: 30px;
+      border-bottom: 1px solid #fefefe; }
+  .post-single .ingredients p {
+    margin-bottom: 0; }
+  .post-single .ingredients p + li {
+    margin-top: 0; }
+  .post-single .ingredients ul {
+    margin: 0 0 0 30px;
+    padding: 0; }
+  .post-single .ingredients li {
+    margin: 10px 0; }
+  .post-single .ingredients p, .post-single .ingredients li {
+    font-size: 1.6em;
+    line-height: 1.3; }
+
+.post-single h1 {
+  font-size: 8em;
+  font-family: "Ruthie", cursive;
+  font-weight: 400;
+  line-height: 0.6em;
+  color: #fefefe; }
+
+.post-single p {
+  margin: 30px 0;
+  text-align: justify; }
+
+.post-single ul {
+  padding-left: 20px; }
+
+.post-single p, .post-single li {
+  font-size: 2em;
+  line-height: 1.6; }
+
+.post-single span[id^="more-"] {
+  display: block;
+  margin: 20px 0; }
+
+.post-single .astuce {
+  padding: 30px;
+  background-color: #443d3f; }
+  .post-single .astuce h3, .post-single .astuce p {
+    margin: 0;
+    color: #fefefe; }
+  .post-single .astuce h3 {
+    font-family: "Ruthie", cursive;
+    font-size: 5em;
+    font-weight: 400;
+    color: #ed1a4d; }
 
 .separator {
   margin: 40px 0;
   padding: 0;
   height: 37px;
   background: url(../images/separator.png) 50% 0 no-repeat; }
+  .separator-light {
+    opacity: .25; }
 
 @media print {
   .hidden-print,

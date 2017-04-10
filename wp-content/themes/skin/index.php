@@ -17,42 +17,38 @@
 
 get_header(); ?>
 
-<div class="wrap">
-	<div id="primary" class="content-area page-sized">
-	    <?php if ( is_front_page() ) : ?>
-            <p class="introduction"><?php echo get_introduction(); ?></p>
-            <hr class="separator" />
-	    <?php endif; ?>
+<div id="primary" class="content-area page-sized">
+    <?php if ( is_front_page() ) : ?>
+        <p class="introduction"><?php echo get_introduction(); ?></p>
+        <hr class="separator separator-light" />
+    <?php endif; ?>
 
 
-		<main id="main" class="site-main" role="main">
+    <main id="main" class="site-main" role="main">
 
-			<?php if ( have_posts() ) : ?>
-                <div class="post-list">
-                <?php
-				while ( have_posts() ) : the_post();
-					get_template_part(
-                        'template-parts/post/content-'
-                        .($wp_query->current_post % 2 == 0 ? 'even' : 'odd')
-                    );
-				endwhile;
-				?>
-                </div>
+        <?php if ( have_posts() ) : ?>
+            <div class="post-list">
+            <?php
+            while ( have_posts() ) : the_post();
+                get_template_part(
+                    'template-parts/post/content-'
+                    .($wp_query->current_post % 2 == 0 ? 'even' : 'odd')
+                );
+            endwhile;
+            ?>
+            </div>
 
-                <?php
-				the_posts_pagination( array(
-					'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
-				) );
+            <p class="pagination">
+            <?php
+                next_posts_link( '<span class="page-previous">Recettes précédentes</span>' );
+                previous_posts_link( '<span class="page-next">Recettes suivantes</span>' );
+            ?>
+            </p>
+        <?php
+        endif;
+        ?>
 
-
-			endif;
-			?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-	<?php get_sidebar(); ?>
-</div><!-- .wrap -->
+    </main><!-- #main -->
+</div><!-- #primary -->
 
 <?php get_footer();

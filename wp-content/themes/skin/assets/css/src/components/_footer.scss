@@ -1,0 +1,14 @@
+$footer-padding: 40px;
+
+.site-footer {
+  padding: $footer-padding 0 0; background-color: $brown;
+  text-align: center;
+
+  ul { margin: 30px 0; }
+  li {
+    display: inline; margin: 0;
+    font-size: 2em;
+  }
+  li + li:before { margin: 0 10px; content: '-'; color: $white; }
+  a { color: $white; }
+}

@@ -1,0 +1,19 @@
+$arrow-padding: 30px;
+
+.pagination {
+  margin: 50px 0;
+  font-size: 1.8em; line-height: 1;
+
+  a {
+    display: inline-block; width: 50%; background-repeat: no-repeat;
+    color: $black; text-align: center;
+  }
+  span {
+    display: inline-block; padding: 10px 0; background-repeat: no-repeat;
+    transition: background-position 200ms ease-in;
+  }
+  .page-previous { padding-left: $arrow-padding; background-image: url('../images/arrow-left.png'); background-position: 3% 50%; }
+  a:hover .page-previous { background-position: 0 50%; }
+  .page-next { padding-right: $arrow-padding; background-image: url('../images/arrow-right.png'); background-position: 97% 50%; }
+  a:hover .page-next { background-position: 100% 50%; }
+}

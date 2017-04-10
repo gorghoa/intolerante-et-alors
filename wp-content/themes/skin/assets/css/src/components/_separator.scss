@@ -2,4 +2,6 @@ $separator-margin: 40px;
 
 .separator {
   margin: $separator-margin 0; padding: 0; height: 37px; background: url(../images/separator.png) 50% 0 no-repeat;
+
+  &-light { opacity: .25; }
 }

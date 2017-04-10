@@ -1,0 +1,47 @@
+$content-padding: 40px;
+$transition-duration: 300ms;
+$transition-delay: 300ms;
+
+.post-mini-list {
+  text-align: center;
+
+  .post {
+    position: relative; display: inline-block; overflow: hidden; margin-bottom: 2 * $content-padding; width: 25%; height: 292px;
+    background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;
+    vertical-align: top;
+
+    + .post { margin-left: -3px; }
+
+    h2 {
+      display: inline-block; border-bottom: 1px solid $red;
+      font-size: 3.5em; font-family: $ruthie; font-weight: $fw-regular; line-height: 0.6em; color: $white;
+      text-shadow: 0 0 20px $black;
+    }
+    .post-content {
+      position: absolute; bottom: 10%; right: 0; left: 0;
+    }
+    .overlay {
+      position: absolute; top: 0; right: 0; bottom: 0; left: 0; right: 0; background-color: rgba($brown, 0);
+      transition: background-color $transition-duration linear $transition-delay;
+
+      p {
+        position: absolute; top: 50%; margin: 0; width: 100%; transform: translateY(-50%);
+        transition: color $transition-duration linear $transition-delay;
+        font-family: $ruthie; font-size: 4em; line-height: 1; color: transparent; text-align: center;
+      }
+    }
+    a:hover .overlay {
+      background-color: rgba($brown, .8);
+
+      p { color: $white; }
+    }
+    &-mini-even {
+      text-align: left;
+      h2 { padding-left: $content-padding; }
+    }
+    &-mini-odd {
+      text-align: right;
+      h2 { padding-right: $content-padding; }
+    }
+  }
+}

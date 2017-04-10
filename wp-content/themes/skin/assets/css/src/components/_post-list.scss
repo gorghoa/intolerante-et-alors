@@ -1,23 +1,29 @@
-$content-padding: 30px;
+$content-padding: 40px;
 $transition-duration: 300ms;
+$transition-delay: 300ms;
 
+h1.archive-title { font-family: $ruthie; font-size: 8em; font-weight: $fw-regular; text-align: center; }
 .post-list .post {
-  position: relative;
+  position: relative; overflow: hidden;
 
   h2 {
     display: inline-block;
     font-size: 6em; font-family: $ruthie; font-weight: $fw-regular; line-height: 0.6em; color: $black; border-bottom: 1px solid $red;
   }
-  p { color: $black; text-align: justify; }
+  p { font-size: 2em; color: $black; text-align: justify; }
   .col-50 { position: relative; height: 585px; background-size: cover; background-repeat: no-repeat; background-position: 50%; }
-  .post-content { position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; height: 1px; }
+  .post-content {
+    position: absolute; top: 50%; right: 0; left: 0; transform: translate3d(0, -40%, 0); opacity: .1;
+    transition: transform $transition-duration ease-in, opacity $transition-duration ease-in;
+  }
+  &--visible .post-content { transform: translate3d(0, -50%, 0); opacity: 1; }
   .overlay {
     position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba($brown, 0);
-    transition: background-color $transition-duration linear;
+    transition: background-color $transition-duration linear $transition-delay;
 
     p {
       position: absolute; top: 0; bottom: 0; margin: auto 0; padding: 0; height: 60px;
-      transition: color $transition-duration linear;
+      transition: color $transition-duration linear $transition-delay;
       font-family: $ruthie; font-size: 6em; line-height: 1; color: transparent; text-align: center; text-align-last: center;
     }
   }
